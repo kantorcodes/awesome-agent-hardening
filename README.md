@@ -112,6 +112,7 @@ I write security practices for agent platforms and review what teams build on th
 - [agentgateway](https://github.com/agentgateway/agentgateway) - An open-source proxy for agents and MCP servers that authorizes each tool call before relaying it. *Authorizing a call by tool name is a solved problem, so I'd take it off the shelf. Its RBAC rules don't see the arguments, though, so limits on values still belong in the tool or the system behind it*
 - [ContextForge](https://github.com/IBM/mcp-context-forge) - IBM's open-source gateway, registry and proxy in front of MCP, A2A and REST APIs. *Out of the box it's one permission for every tool, and per-tool or per-argument decisions come from a policy plugin. Check that the token going downstream still names the user: with client credentials it doesn't*
 - [Istio Authorization Policy](https://istio.io/latest/docs/reference/config/security/authorization-policy/) - Allow and deny rules between workloads by host, method and path, enough to build your own agent gateway on a mesh. *That's the road if none of the gateways above suits you. The mesh will authorize the request, but it holds no credentials and swaps nothing in, so the token exchange and the tool-level checks are yours to write*
+- [HOL Guard harness coverage](https://hol.org/guard/security/coverage) - Commit-linked support matrix for coding-agent action events, approval paths, failure behavior, expiry dates and known blind spots.
 
 ## Shell and Files
 
